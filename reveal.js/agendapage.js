@@ -4,7 +4,7 @@ class Agenda extends HTMLElement {
 
     this.icons = [];
     this.tmp = "";
-    Array.from(this.querySelectorAll("svg, img")).forEach((item) => {
+    Array.from(this.querySelectorAll("svg, img, object")).forEach((item) => {
       var cln = item.cloneNode(true);
       this.icons.push(cln);
     });
@@ -55,15 +55,6 @@ class Agenda extends HTMLElement {
         iconrow.appendChild(entry);
       }
     }
-
-    // this.slides.forEach((element) => {
-    //   titlerow.append(element.attributes["title"].value);
-    // });
-
-    // this.append(`</tr>
-    //     </tbody>
-    // </table>`);
-    // this.innerHTML = this.tmp;
   }
 }
 customElements.define("agenda-view", Agenda); // (2)
