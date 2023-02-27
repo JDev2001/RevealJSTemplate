@@ -1,7 +1,7 @@
 /*********************************************
  * CUSTOM STYLES
  *********************************************/
- :root {
+:root {
   --r-main-font: "Chivo", sans-serif;
   --r-heading-font: "Chivo", sans-serif;
   --r-code-font: monospace;
@@ -29,12 +29,13 @@ body {
 
 .agenda {
   width: 100%;
+  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  margin: 1em 0 1em 0;
+  margin: 3em 0 1em 0;
   gap: 1em;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .agenda * {
@@ -53,10 +54,25 @@ body {
 }
 
 .agenda-entry > svg,
-img {
+img,
+object {
   margin: 0 !important;
   min-height: 90px !important;
   max-height: 90px !important;
+  fill: white;
+}
+
+.agenda-entry embed {
+  margin: 0 !important;
+  min-height: 90px !important;
+  max-height: 90px !important;
+}
+
+.agenda-entry embed svg {
+  fill: white;
+}
+
+.agenda-entry embed > svg * {
   fill: white;
 }
 
