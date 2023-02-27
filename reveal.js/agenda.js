@@ -119,7 +119,7 @@ function generateAgenda() {
     titlecontainer.appendChild(newTitle);
     var dynamicWidth;
     if (slides.length < 4) {
-      dynamicWidth = 85 / slides.length + "vw";
+      dynamicWidth = 85 / slides.length - 1 + "vw";
     } else {
       dynamicWidth = 85 / 5 + "vw";
     }
