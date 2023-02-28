@@ -48,18 +48,18 @@ Reveal.on("ready", (event) => {
   });
 
   generateAgenda();
+  // toggle Agenda visibility
+  changeDisplay(event.indexh);
   updateAgenda(event.indexh - contentSlidesLength, event.indexv, true);
 
   Reveal.on("slidechanged", (event) => {
+    changeDisplay(event.indexh);
     updateAgenda(event.indexh - contentSlidesLength, event.indexv);
     // scrollTitle(event.indexh - contentSlidesLength);
   });
 });
 
 function updateAgenda(currentSlide, currentSubslide, firstLoad) {
-  // toggle Agenda visibility
-  changeDisplay();
-
   // guard clause if not a content slide
   if (currentSlide < 0) return;
 
@@ -94,7 +94,11 @@ function updateAgenda(currentSlide, currentSubslide, firstLoad) {
   }
 
   // check for subtitles
-  if (!slideElement.querySelector(".header-subtitle")) return;
+  if (
+    !slideElement.querySelector(".header-subtitle") ||
+    !slideElement.querySelectorAll(".header-subtitle")[currentSubslide]
+  )
+    return;
 
   // add focus to active subtitle
   slideElement
@@ -105,8 +109,8 @@ function updateAgenda(currentSlide, currentSubslide, firstLoad) {
     [currentSubslide].classList.remove("inactive");
 }
 
-function changeDisplay() {
-  if (!Reveal.getCurrentSlide().hasAttribute("title")) {
+function changeDisplay(indexh) {
+  if (!Reveal.getHorizontalSlides()[indexh].hasAttribute("title")) {
     header.style.visibility = "hidden";
     return;
   }
@@ -138,6 +142,7 @@ function generateAgenda() {
     `;
 
     slide.childs.forEach((x) => {
+      if (!x.attributes["title"]) return;
       var subslideName = x.attributes["title"].value;
       newTitle.innerHTML += `
 					<a class="header-subtitle" style="margin-left: calc(${
