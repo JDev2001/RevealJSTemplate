@@ -25,7 +25,7 @@ class SmartList extends HTMLElement {
         }
         else
         {         
-            var items = this.innerHTML.split("\n");           
+            var items = this.innerHTML.split("|");           
             items.forEach((item)=>
             {
                 item = item.trim();
