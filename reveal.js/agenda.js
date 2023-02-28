@@ -50,7 +50,7 @@ Reveal.on("ready", (event) => {
   generateAgenda();
   // toggle Agenda visibility
   changeDisplay(event.indexh);
-  scrollTitle(currentSlide, false);
+  scrollTitle(event.indexh - contentSlidesLength, false);
   updateAgenda(event.indexh - contentSlidesLength, event.indexv);
 
   Reveal.on("slidechanged", (event) => {
@@ -84,7 +84,8 @@ function updateAgenda(currentSlide, currentSubslide) {
 
   // reset subtitle focus
   document.querySelectorAll(".header-subtitle").forEach((subtitle, index) => {
-    if (index !== currentSubslide - 1) subtitle.classList.add("inactive");
+    // if (index !== currentSubslide - 1) 
+    subtitle.classList.add("inactive");
   });
 
   // scroll title into view
