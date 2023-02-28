@@ -18,11 +18,12 @@
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/black.css" />
     <!-- <link rel="stylesheet" href="dist/theme/white.css"> -->
-    
+
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/custom.css" />
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
@@ -66,19 +67,6 @@
           <h2>Agenda</h2>
 
           <agenda-view>
-            <svg
-              class="center"
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              fill="currentColor"
-              class="bi bi-pencil-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-              />
-            </svg>
             <svg
               class="center"
               xmlns="http://www.w3.org/2000/svg"
@@ -184,9 +172,10 @@
 
         <section title="Slide1">
           <section title="Subslide1">
-            <smart-list fade> Item 1 
+            <smart-list fade>
+              Item 1
               Item 2 
-            Test</smart-list>
+              Test</smart-list>
           </section>
           <section title="Subslide2">"Motivational text"</section>
         </section>
@@ -235,26 +224,7 @@
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
         keyboard: {
-          84: () => {
-            console.log("T key pressed, changing Theme!");
-            if (document.querySelector(`link[href="dist/theme/white.css"`)) {
-              var newStyle = document.createElement("link");
-              newStyle.href = "dist/theme/black.css";
-              newStyle.rel = "stylesheet";
-              document.head.appendChild(newStyle);
-              document.head.removeChild(
-                document.querySelector(`link[href="dist/theme/white.css"]`)
-              );
-            } else {
-              var newStyle = document.createElement("link");
-              newStyle.href = "dist/theme/white.css";
-              newStyle.rel = "stylesheet";
-              document.head.appendChild(newStyle);
-              document.head.removeChild(
-                document.querySelector(`link[href="dist/theme/black.css"]`)
-              );
-            }
-          },
+          84: () => changeTheme(),
         },
       });
     </script>
