@@ -156,21 +156,21 @@ function scrollTitle(currentSlide, smooth) {
       titlecontainer.children[currentSlide].scrollIntoView({
         behavior: scrollBehavior,
         block: "end",
-        inline: "nearest",
+        inline: "center",
       });
       return;
     }
     titlecontainer.children[currentSlide + 1].scrollIntoView({
       behavior: scrollBehavior,
       block: "end",
-      inline: "nearest",
+      inline: "center",
     });
   } else {
     if (currentSlide - 1 < 0) return;
     titlecontainer.children[currentSlide - 1].scrollIntoView({
       behavior: scrollBehavior,
       block: "end",
-      inline: "nearest",
+      inline: "center",
     });
   }
   previousContentSlide = currentSlide;
