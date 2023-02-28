@@ -50,7 +50,8 @@ Reveal.on("ready", (event) => {
   generateAgenda();
   // toggle Agenda visibility
   changeDisplay(event.indexh);
-  updateAgenda(event.indexh - contentSlidesLength, event.indexv, true);
+  scrollTitle(currentSlide, false);
+  updateAgenda(event.indexh - contentSlidesLength, event.indexv);
 
   Reveal.on("slidechanged", (event) => {
     changeDisplay(event.indexh);
@@ -59,7 +60,7 @@ Reveal.on("ready", (event) => {
   });
 });
 
-function updateAgenda(currentSlide, currentSubslide, firstLoad) {
+function updateAgenda(currentSlide, currentSubslide) {
   // guard clause if not a content slide
   if (currentSlide < 0) return;
 
@@ -82,16 +83,12 @@ function updateAgenda(currentSlide, currentSubslide, firstLoad) {
   ).innerHTML = `<circle cx="8" cy="8" r="8"/>`;
 
   // reset subtitle focus
-  document.querySelectorAll(".header-subtitle").forEach((subtitle) => {
-    subtitle.classList.add("inactive");
+  document.querySelectorAll(".header-subtitle").forEach((subtitle, index) => {
+    if (index !== currentSubslide - 1) subtitle.classList.add("inactive");
   });
 
-  // scroll Element into view, if not in viewport by default
-  if (firstLoad) {
-    scrollTitle(currentSlide, false);
-  } else {
-    scrollTitle(currentSlide, true);
-  }
+  // scroll title into view
+  scrollTitle(currentSlide, true);
 
   // check for subtitles
   if (
