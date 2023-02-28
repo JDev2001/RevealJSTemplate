@@ -1,6 +1,11 @@
 /*********************************************
  * CUSTOM STYLES
  *********************************************/
+@font-face {
+  font-family: "Chivo";
+  src: url("Chivo-VariableFont_wght.ttf");
+}
+
 :root {
   --r-main-font: "Chivo", sans-serif;
   --r-heading-font: "Chivo", sans-serif;
