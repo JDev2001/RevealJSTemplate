@@ -175,18 +175,24 @@
             <smart-list fade>Item 1|Item 2|Item 3 </smart-list>
           </section>
           <section title="Subslide2">"Motivational text"</section>
+          <section title="Subslide1">
+            <smart-list fade>Item 1|Item 2|Item 3 </smart-list>
+          </section>
+          <section title="Subslide1">
+            <smart-list fade>Item 1|Item 2|Item 3 </smart-list>
+          </section>
         </section>
 
         <section title="Slide2" data-markdown>
-          <textarea data-template>
-					```csharp [1,2-4]
-					foreach(var i in items)
-					{
-						Console.WriteLine(i);
-					}
-					```
-					</textarea
-          >
+            <textarea data-template fade>
+            ```csharp [1-4|1|2-4]
+            foreach(var i in items)
+            {
+              Console.WriteLine(i);
+            }
+            ```
+            </textarea>
+          </section>
         </section>
         <section title="Slide3">
           <img src="drawio/demo.png" />
