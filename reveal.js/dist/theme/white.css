@@ -384,3 +384,7 @@ section.has-dark-background h6 {
 img {
   fill: black;
 }
+
+#header {
+  border-bottom: #181a1b 0.3vh solid;
+}
