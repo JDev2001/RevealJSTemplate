@@ -110,9 +110,11 @@ function updateAgenda(currentSlide, currentSubslide) {
 function changeDisplay(indexh) {
   if (!Reveal.getHorizontalSlides()[indexh].hasAttribute("title")) {
     header.style.visibility = "hidden";
+    document.querySelector(".reveal").classList.remove("agenda-reveal")
     return;
   }
   header.style.visibility = "visible";
+  document.querySelector(".reveal").classList.add("agenda-reveal")
 }
 
 function generateAgenda() {

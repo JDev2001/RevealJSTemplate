@@ -186,3 +186,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.agenda-reveal {
+  margin-top: 10vh !important;
+  /* height: 90vh; */
+  max-height: 90vh !important;
+}
