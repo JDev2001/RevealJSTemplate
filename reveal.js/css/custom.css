@@ -12,6 +12,17 @@
   --r-code-font: monospace;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+* ::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 body {
   font-family: "Chivo", sans-serif;
 }
@@ -28,6 +39,7 @@ body {
   width: 100%;
   max-height: 10vh;
   min-height: 10vh;
+  border-bottom: #181a1b 0.3vh solid;
   gap: 3em;
 }
 
@@ -61,15 +73,15 @@ body {
 .agenda-entry > img,
 .agenda-entry > object {
   margin: 0 !important;
-  min-height: 90px !important;
-  max-height: 90px !important;
+  min-height: 60px !important;
+  max-height: 60px !important;
   fill: white;
 }
 
 .agenda-entry embed {
   margin: 0 !important;
-  min-height: 90px !important;
-  max-height: 90px !important;
+  min-height: 60px !important;
+  max-height: 60px !important;
 }
 
 .agenda-entry embed svg {
@@ -165,4 +177,12 @@ body {
     display: flex;
     opacity: 1;
   }
+}
+
+.flex-content {
+  display: flex;
+  flex: 1 1 0px;
+  gap: 3em;
+  align-items: center;
+  justify-content: center;
 }
