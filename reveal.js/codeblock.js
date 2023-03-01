@@ -23,10 +23,13 @@ class Codeblock extends HTMLElement {
     this.removeAttribute("data-trim");
     this.removeAttribute("data-ln-start-from");
     this.removeAttribute("data-line-numbers");
-    var script = document.createElement("script");
-    script.setAttribute("type", "text/template");
-    script.innerHTML = this.innerHTML;
-    code.appendChild(script);
+    if (!this.hasAttribute("data-escape")) {
+      console.log("ya yeet ya")
+      var script = document.createElement("script");
+      script.setAttribute("type", "text/template");
+      script.innerHTML = this.innerHTML;
+      code.appendChild(script);
+    }
 
     this.attributes.forEach((x) => {
       pre.setAttribute(x.name, x.value);
