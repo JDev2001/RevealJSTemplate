@@ -6,6 +6,11 @@ class Codeblock extends HTMLElement {
 
   init() {
     var pre = document.createElement("pre");
+    pre.innerHTML = this.innerHTML;
+    console.log();
+    if (this.firstChild.nextSibling.localName === "pre")
+      pre = this.firstChild.nextSibling;
+
     var code = document.createElement("code");
 
     if (this.getAttribute("data-line-numbers"))
@@ -24,17 +29,20 @@ class Codeblock extends HTMLElement {
     this.removeAttribute("data-ln-start-from");
     this.removeAttribute("data-line-numbers");
     if (!this.hasAttribute("data-escape")) {
-      console.log("ya yeet ya")
       var script = document.createElement("script");
       script.setAttribute("type", "text/template");
-      script.innerHTML = this.innerHTML;
+      script.innerHTML = pre.innerHTML;
       code.appendChild(script);
     }
 
     this.attributes.forEach((x) => {
       pre.setAttribute(x.name, x.value);
     });
+    pre.innerHTML = "";
     pre.appendChild(code);
+    while (this.children) {
+      this.removeChild(this.firstChilD);
+    }
     this.outerHTML = pre.outerHTML;
   }
 }
