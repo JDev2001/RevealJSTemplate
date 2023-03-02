@@ -11,7 +11,7 @@ class Codeblock extends HTMLElement {
       pre = this.firstChild.nextSibling;
 
     var code = document.createElement("code");
-
+    code.setAttribute("data-line-numbers", "");
     if (this.getAttribute("data-line-numbers"))
       code.setAttribute(
         "data-line-numbers",
