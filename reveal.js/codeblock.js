@@ -7,7 +7,6 @@ class Codeblock extends HTMLElement {
   init() {
     var pre = document.createElement("pre");
     pre.innerHTML = this.innerHTML;
-    console.log();
     if (this.firstChild.nextSibling.localName === "pre")
       pre = this.firstChild.nextSibling;
 
@@ -40,10 +39,9 @@ class Codeblock extends HTMLElement {
     });
     pre.innerHTML = "";
     pre.appendChild(code);
-    while (this.children) {
-      this.removeChild(this.firstChilD);
-    }
-    this.outerHTML = pre.outerHTML;
+    try {
+      this.outerHTML = pre.outerHTML;
+    } catch (e) {}
   }
 }
 
