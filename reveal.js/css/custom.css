@@ -192,3 +192,11 @@ body {
   /* height: 90vh; */
   max-height: 90vh !important;
 }
+
+@media print
+{    
+    #header, #header *
+    {
+        display: none !important;
+    }
+}
