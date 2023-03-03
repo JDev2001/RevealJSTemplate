@@ -1,7 +1,9 @@
-var previousContentSlide = 0;
+var previousContentSlide = -1;
+var previousSubslide;
 var slides;
 var intSlidesCount;
 var header = document.createElement("div");
+// var previousHorizontalSlide;
 header.id = "header";
 var imgcontainer = document.createElement("div");
 imgcontainer.id = "imgcontainer";
@@ -62,41 +64,57 @@ Reveal.on("ready", (event) => {
 
 function updateAgenda(currentSlide, currentSubslide) {
   // guard clause if not a content slide
-  if (currentSlide < 0) return;
+  if (currentSlide < 0) {
+    previousContentSlide = -1;
+    return;
+  }
 
+  console.log(currentSlide);
   const slideElement = titlecontainer.children[currentSlide];
 
-  // reset title focus
-  titlecontainer.children.forEach((child) => {
-    child.querySelector(".header-title").classList.remove("focus");
-    child.querySelector(".bulletpoint").classList.remove("focus");
-    child.querySelector(
-      ".bulletpoint"
-    ).innerHTML = `<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>`;
-  });
+  if (previousContentSlide !== currentSlide) {
+    previousSubslide;
+    // reset title focus
+    titlecontainer.children.forEach((child) => {
+      child.querySelector(".header-title").classList.remove("focus");
+      child.querySelector(".bulletpoint").classList.remove("focus");
+      child.querySelector(
+        ".bulletpoint"
+      ).innerHTML = `<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>`;
+    });
 
-  // add focus to active title
-  slideElement.querySelector(".header-title").classList.add("focus");
-  slideElement.querySelector(".bulletpoint").classList.add("focus");
-  slideElement.querySelector(
-    ".bulletpoint"
-  ).innerHTML = `<circle cx="8" cy="8" r="8"/>`;
+    // add focus to active title
+    slideElement.querySelector(".header-title").classList.add("focus");
+    slideElement.querySelector(".bulletpoint").classList.add("focus");
+    slideElement.querySelector(
+      ".bulletpoint"
+    ).innerHTML = `<circle cx="8" cy="8" r="8"/>`;
+
+    // scroll title into view
+    scrollTitle(currentSlide, true);
+
+    // update previous Slide var
+    previousContentSlide = currentSlide;
+
+    // check for subtitles
+    if (
+      !slideElement.querySelector(".header-subtitle") ||
+      !slideElement.querySelectorAll(".header-subtitle")[currentSubslide]
+    ) {
+      console.log("sheet");
+      return;
+    }
+  }
+  console.log(currentSubslide);
 
   // reset subtitle focus
-  document.querySelectorAll(".header-subtitle").forEach((subtitle, index) => {
-    // if (index !== currentSubslide - 1)
-    subtitle.classList.add("inactive");
-  });
-
-  // scroll title into view
-  scrollTitle(currentSlide, true);
-
-  // check for subtitles
-  if (
-    !slideElement.querySelector(".header-subtitle") ||
-    !slideElement.querySelectorAll(".header-subtitle")[currentSubslide]
-  )
-    return;
+  slideElement
+    .querySelectorAll(".header-subtitle")
+    .forEach((subtitle, index) => {
+      console.log(subtitle.innerText, subtitle);
+      if (subtitle.value !== currentSubslide - 1)
+        subtitle.classList.add("inactive");
+    });
 
   // add focus to active subtitle
   slideElement
@@ -105,6 +123,8 @@ function updateAgenda(currentSlide, currentSubslide) {
   slideElement
     .querySelectorAll(".header-subtitle")
     [currentSubslide].classList.remove("inactive");
+
+  previousContentSlide = currentSlide;
 }
 
 function changeDisplay(indexh) {
@@ -140,9 +160,6 @@ function generateAgenda() {
       <a class="header-title">${slide.name}</a>
     </div>
     `;
-    console.log(
-      newTitle.querySelector(".header-title").getBoundingClientRect()
-    );
     // Change css properties to properly generate subtitle margins
     newTitle.querySelector(".header-title").style.fontSize = "2.9vh";
     newTitle.querySelector(".bulletpoint").style.height = "1vh";
@@ -158,7 +175,7 @@ function generateAgenda() {
     });
     // Reset css properties
     // Change css properties to properly generate subtitle margins
-    newTitle.querySelector(".header-title").style.removeProperty("fontsize");
+    newTitle.querySelector(".header-title").style.removeProperty("font-size");
     newTitle.querySelector(".bulletpoint").style.removeProperty("height");
     newTitle.querySelector(".bulletpoint").style.removeProperty("height");
   });
@@ -172,22 +189,21 @@ function scrollTitle(currentSlide, smooth) {
       titlecontainer.children[currentSlide].scrollIntoView({
         behavior: scrollBehavior,
         block: "end",
-        inline: "center",
+        inline: "nearest",
       });
       return;
     }
     titlecontainer.children[currentSlide + 1].scrollIntoView({
       behavior: scrollBehavior,
       block: "end",
-      inline: "center",
+      inline: "nearest",
     });
   } else {
     if (currentSlide - 1 < 0) return;
     titlecontainer.children[currentSlide - 1].scrollIntoView({
       behavior: scrollBehavior,
       block: "end",
-      inline: "center",
+      inline: "nearest",
     });
   }
-  previousContentSlide = currentSlide;
 }
