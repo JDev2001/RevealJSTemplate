@@ -84,7 +84,7 @@ function updateAgenda(currentSlide, currentSubslide) {
 
   // reset subtitle focus
   document.querySelectorAll(".header-subtitle").forEach((subtitle, index) => {
-    // if (index !== currentSubslide - 1) 
+    // if (index !== currentSubslide - 1)
     subtitle.classList.add("inactive");
   });
 
@@ -110,11 +110,11 @@ function updateAgenda(currentSlide, currentSubslide) {
 function changeDisplay(indexh) {
   if (!Reveal.getHorizontalSlides()[indexh].hasAttribute("title")) {
     header.style.visibility = "hidden";
-    document.querySelector(".reveal").classList.remove("agenda-reveal")
+    document.querySelector(".reveal").classList.remove("agenda-reveal");
     return;
   }
   header.style.visibility = "visible";
-  document.querySelector(".reveal").classList.add("agenda-reveal")
+  document.querySelector(".reveal").classList.add("agenda-reveal");
 }
 
 function generateAgenda() {
@@ -140,7 +140,13 @@ function generateAgenda() {
       <a class="header-title">${slide.name}</a>
     </div>
     `;
-
+    console.log(
+      newTitle.querySelector(".header-title").getBoundingClientRect()
+    );
+    // Change css properties to properly generate subtitle margins
+    newTitle.querySelector(".header-title").style.fontSize = "2.9vh";
+    newTitle.querySelector(".bulletpoint").style.height = "1vh";
+    newTitle.querySelector(".bulletpoint").style.width = "1vh";
     slide.childs.forEach((x) => {
       if (!x.attributes["title"]) return;
       var subslideName = x.attributes["title"].value;
@@ -148,8 +154,13 @@ function generateAgenda() {
 					<a class="header-subtitle" style="margin-left: calc(${
             newTitle.querySelector(".header-title").offsetLeft -
             newTitle.offsetLeft
-          }px - 0.5em)">${subslideName}</a>`;
+          }px + 2px)">${subslideName}</a>`;
     });
+    // Reset css properties
+    // Change css properties to properly generate subtitle margins
+    newTitle.querySelector(".header-title").style.removeProperty("fontsize");
+    newTitle.querySelector(".bulletpoint").style.removeProperty("height");
+    newTitle.querySelector(".bulletpoint").style.removeProperty("height");
   });
 }
 
