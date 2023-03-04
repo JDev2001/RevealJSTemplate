@@ -1,138 +1,207 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-  <title>reveal.js</title>
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>reveal.js</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
-  <!-- <link -->
-  <!-- href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap"
+    <!-- <link -->
+    <!-- href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap"
       rel="stylesheet"
     /> -->
-  <link rel="stylesheet" href="dist/reset.css" />
-  <link rel="stylesheet" href="dist/reveal.css" />
-  <link rel="stylesheet" href="dist/theme/black.css" />
-  <!-- <link rel="stylesheet" href="dist/theme/white.css"> -->
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+    <!-- <link rel="stylesheet" href="dist/theme/white.css"> -->
 
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
 
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="custom.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
 
-  <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
-  <style>
-    [hidden] {
-      display: inherit !important;
-    }
+    <style>
+      [hidden] {
+        display: inherit !important;
+      }
 
-    table {
-      border-collapse: collapse;
-    }
+      table {
+        border-collapse: collapse;
+      }
 
-    th {
-      width: 400px;
-      text-align: center;
-    }
+      th {
+        width: 400px;
+        text-align: center;
+      }
 
-    table,
-    tr,
-    td {
-      border: none;
-      border-style: hidden;
-    }
+      table,
+      tr,
+      td {
+        border: none;
+        border-style: hidden;
+      }
 
-    .center {
-      display: block;
-      margin: auto;
-    }
+      .center {
+        display: block;
+        margin: auto;
+      }
 
-    .horizontal {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-  </style>
-</head>
+      .horizontal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <section>
-        <p><strong>Welcome</strong></p>
-      </section>
-
-      <section>
-        <h2>Agenda</h2>
-
-        <agenda-view>
-          <svg class="center" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-            class="bi bi-pencil-fill" viewBox="0 0 16 16">
-            <path
-              d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-          </svg>
-          <svg class="center" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
-            class="bi bi-code" viewBox="0 0 16 16">
-            <path
-              d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z" />
-          </svg>
-          <svg class="center" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
-            class="bi bi-code" viewBox="0 0 16 16">
-            <path
-              d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z" />
-          </svg>
-          <svg class="center" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
-            class="bi bi-code" viewBox="0 0 16 16">
-            <path
-              d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z" />
-          </svg>
-          <svg class="center" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
-            class="bi bi-code" viewBox="0 0 16 16">
-            <path
-              d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z" />
-          </svg>
-          <svg class="center" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
-            class="bi bi-code" viewBox="0 0 16 16">
-            <path
-              d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z" />
-          </svg>
-          <svg class="center" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
-            class="bi bi-code" viewBox="0 0 16 16">
-            <path
-              d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z" />
-          </svg>
-        </agenda-view>
-      </section>
-
-      <section title="Features" data-markdown>
-        <textarea data-template>
-					- Auto-Generated dynamic Menubar (Agenda-Bar)
-					- Auto-Generated Agenda Slide (Agenda-View)
-					- DrawIo PNG Generation (Via Bat. File)
-					</textarea>
-      </section>
-
-      <section title="Slide1">
-        <section title="Subslide1">
-          <smart-list fade>Item 1|Item 2|Item 3 </smart-list>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <p><strong>Welcome</strong></p>
         </section>
-        <section title="Subslide2">"Motivational text"</section>
-        <section title="Subslide3">
-          <smart-list fade>Item 4|Item 5|Item 6</smart-list>
-        </section>
-      </section>
 
-      <section title="Slide2">
-        <h2>Featuring the html code-block element</h2>
-        <div class="fragment semi-fade-out" data-fragment-index="1">
-          <p>Input:</p>
-          <code-block>
-            <pre>
+        <section>
+          <h2>Agenda</h2>
+
+          <agenda-view>
+            <svg
+              class="center"
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-pencil-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+              />
+            </svg>
+            <svg
+              class="center"
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              fill="currentColor"
+              class="bi bi-code"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"
+              />
+            </svg>
+            <svg
+              class="center"
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              fill="currentColor"
+              class="bi bi-code"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"
+              />
+            </svg>
+            <svg
+              class="center"
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              fill="currentColor"
+              class="bi bi-code"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"
+              />
+            </svg>
+            <svg
+              class="center"
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              fill="currentColor"
+              class="bi bi-code"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"
+              />
+            </svg>
+            <svg
+              class="center"
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              fill="currentColor"
+              class="bi bi-code"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"
+              />
+            </svg>
+            <svg
+              class="center"
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              fill="currentColor"
+              class="bi bi-code"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"
+              />
+            </svg>
+          </agenda-view>
+        </section>
+
+        <section title="Features">
+          <section data-markdown>
+            <textarea data-template>
+            - Auto-Generated dynamic Menubar (Agenda-Bar)
+            - Auto-Generated Agenda Slide (Agenda-View)
+            - DrawIo PNG Generation (Via Bat. File)
+            </textarea>
+          </section>
+          <section title="Subslides!" data-markdown>
+            <textarea data-template>
+            Agenda also supports subslide titles!
+            </textarea>
+          </section>
+        </section>
+
+        <section title="Slide1">
+          <section title="Smartlist">
+            <smart-list fade>Item 1|Item 2|Item 3 </smart-list>
+          </section>
+          <section title="Smartlist">
+            <smart-list fade>Item 4|Item 5|Item 6</smart-list>
+          </section>
+          <section title="And some text">"Motivational text"</section>
+          <section>"Motivational text"</section>
+          <section title="Smartlist">
+            <smart-list fade>Item 4|Item 5|Item 6</smart-list>
+          </section>
+        </section>
+
+        <section title="Slide2">
+          <h2>Featuring the html code-block element</h2>
+          <div class="fragment semi-fade-out" data-fragment-index="1">
+            <p>Input:</p>
+            <code-block>
+              <pre>
               <code-block data-line-numbers="1-3|1" data-ln-start-from="9">
                 // use a pre-element to avoid formatting the code snippet!
                 <pre>
@@ -143,71 +212,70 @@
                 </pre>
               </code-block>
             </pre>
-          </code-block>
-        </div>
-        <div class="fragment" data-fragment-index="1">
-          <p>Result:</p>
-          <code-block data-line-numbers="1-3|1" data-ln-start-from="9">
-            <pre>
+            </code-block>
+          </div>
+          <div class="fragment" data-fragment-index="1">
+            <p>Result:</p>
+            <code-block data-line-numbers="1-3|1" data-ln-start-from="9">
+              <pre>
                 public void foo() {
                   bar();
                 }
               </pre>
-          </code-block>
-        </div>
-      </section>
-      <section title="Slide3">
-        <img src="drawio/demo.png" />
-      </section>
-      <section title="Slide4">
-        <img src="drawio/demo.png" />
-      </section>
-      <section title="Slide4">
-        <img src="drawio/demo.png" />
-      </section>
-      <section title="Slide4">
-        <img src="drawio/demo.png" />
-      </section>
-      <section title="Slide5">
-        <img src="drawio/demo.png" />
-      </section>
+            </code-block>
+          </div>
+        </section>
+        <section title="Slide3">
+          <img src="drawio/demo.png" />
+        </section>
+        <section title="Slide4">
+          <img src="drawio/demo.png" />
+        </section>
+        <section title="Slide4">
+          <img src="drawio/demo.png" />
+        </section>
+        <section title="Slide4">
+          <img src="drawio/demo.png" />
+        </section>
+        <section title="Slide5">
+          <img src="drawio/demo.png" />
+        </section>
 
-      <section title="Slide6">
-        <img src="drawio/demo.png" />
-      </section>
+        <section title="Slide6">
+          <img src="drawio/demo.png" />
+        </section>
+      </div>
     </div>
-  </div>
 
-  <script src="dist/reveal.js"></script>
-  <script src="plugin/notes/notes.js"></script>
-  <script src="plugin/markdown/markdown.js"></script>
-  <script src="plugin/highlight/highlight.js"></script>
-  <script src="agenda.js"></script>
-  <script src="agendapage.js"></script>
-  <script src="SmartList.js"></script>
-  <script src="codeblock.js"></script>
-  <script>
-    // More info about initialization & config:
-    // - https://revealjs.com/initialization/
-    // - https://revealjs.com/config/
-    Reveal.initialize({
-      hash: true,
-      // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      keyboard: {
-        84: () => changeTheme(),
-      },
-    });
-  </script>
-  <style>
-    .reveal .code-wrapper code {
-      white-space: pre-wrap;
-    }
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="agenda.js"></script>
+    <script src="agendapage.js"></script>
+    <script src="SmartList.js"></script>
+    <script src="codeblock.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        keyboard: {
+          84: () => changeTheme(),
+        },
+      });
+    </script>
+    <style>
+      .reveal .code-wrapper code {
+        white-space: pre-wrap;
+      }
 
-    li {
-      margin: 20px 0;
-    }
-  </style>
-</body>
-
+      li {
+        margin: 20px 0;
+      }
+    </style>
+  </body>
 </html>

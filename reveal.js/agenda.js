@@ -1,5 +1,5 @@
 var previousContentSlide = -1;
-var previousSubslide;
+var previousSubslide = -1;
 var slides;
 var intSlidesCount;
 var header = document.createElement("div");
@@ -68,12 +68,15 @@ function updateAgenda(currentSlide, currentSubslide) {
     previousContentSlide = -1;
     return;
   }
-
-  console.log(currentSlide);
   const slideElement = titlecontainer.children[currentSlide];
 
   if (previousContentSlide !== currentSlide) {
-    previousSubslide;
+    // reset previousSubslide
+    previousSubslide = -1;
+    document.querySelectorAll(".header-subtitle").forEach((title) => {
+      title.classList.remove("active");
+    });
+
     // reset title focus
     titlecontainer.children.forEach((child) => {
       child.querySelector(".header-title").classList.remove("focus");
@@ -101,20 +104,30 @@ function updateAgenda(currentSlide, currentSubslide) {
       !slideElement.querySelector(".header-subtitle") ||
       !slideElement.querySelectorAll(".header-subtitle")[currentSubslide]
     ) {
-      console.log("sheet");
       return;
     }
   }
-  console.log(currentSubslide);
+
+  // check if subslide title has changed, skip updating it if it's the same
+  if (
+    slideElement.querySelectorAll(".header-subtitle")[currentSubslide] &&
+    slideElement.querySelectorAll(".header-subtitle")[previousSubslide]
+  ) {
+    if (
+      slideElement.querySelectorAll(".header-subtitle")[currentSubslide]
+        .innerText ===
+      slideElement.querySelectorAll(".header-subtitle")[previousSubslide]
+        .innerText
+    ) {
+      updatePreviousSlideVars(currentSlide, currentSubslide);
+      return;
+    }
+  }
 
   // reset subtitle focus
-  slideElement
-    .querySelectorAll(".header-subtitle")
-    .forEach((subtitle, index) => {
-      console.log(subtitle.innerText, subtitle);
-      if (subtitle.value !== currentSubslide - 1)
-        subtitle.classList.add("inactive");
-    });
+  slideElement.querySelectorAll(".header-subtitle").forEach((subtitle) => {
+    subtitle.classList.add("inactive");
+  });
 
   // add focus to active subtitle
   slideElement
@@ -123,8 +136,16 @@ function updateAgenda(currentSlide, currentSubslide) {
   slideElement
     .querySelectorAll(".header-subtitle")
     [currentSubslide].classList.remove("inactive");
+  try {
+  } catch (e) {}
 
-  previousContentSlide = currentSlide;
+  updatePreviousSlideVars(currentSlide, currentSubslide);
+}
+
+function updatePreviousSlideVars(main, sub) {
+  // update global vars for previous Slides
+  previousContentSlide = main;
+  previousSubslide = sub;
 }
 
 function changeDisplay(indexh) {
@@ -165,13 +186,18 @@ function generateAgenda() {
     newTitle.querySelector(".bulletpoint").style.height = "1vh";
     newTitle.querySelector(".bulletpoint").style.width = "1vh";
     slide.childs.forEach((x) => {
-      if (!x.attributes["title"]) return;
-      var subslideName = x.attributes["title"].value;
-      newTitle.innerHTML += `
-					<a class="header-subtitle" style="margin-left: calc(${
-            newTitle.querySelector(".header-title").offsetLeft -
-            newTitle.offsetLeft
-          }px + 2px)">${subslideName}</a>`;
+      var titleElement = document.createElement("a");
+      titleElement.classList.add("header-subtitle");
+      if (x.attributes["title"]) {
+        titleElement.innerText = x.attributes["title"].value;
+        titleElement.style.marginLeft = `calc(${
+          newTitle.querySelector(".header-title").offsetLeft -
+          newTitle.offsetLeft
+        }px + 2px`;
+      } else {
+        titleElement.style.display = "none";
+      }
+      newTitle.appendChild(titleElement);
     });
     // Reset css properties
     // Change css properties to properly generate subtitle margins
