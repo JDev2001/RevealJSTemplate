@@ -1,7 +1,7 @@
 /*********************************************
  * CUSTOM STYLES
  *********************************************/
-@font-face {
+ @font-face {
   font-family: "Chivo";
   src: url("Chivo-VariableFont_wght.ttf");
 }
@@ -19,8 +19,8 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 * {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 body {
@@ -94,12 +94,12 @@ body {
 
 .header-title {
   color: grey !important;
-  font-size: 2vh;
+  font-size: 1.8vh;
 }
 
 .header-title.focus {
-  color: white !important;
-  font-size: 2.9vh;
+  color: white;
+  font-size: 2.2vh;
   animation-name: textgrowth;
   animation-duration: 0.4s;
 }
@@ -107,14 +107,13 @@ body {
 .header-subtitle {
   display: none;
   margin-bottom: 0.2vh;
-  font-size: 1.8vh;
+  font-size: 2.9vh;
   align-self: flex-start;
 }
 
 .header-subtitle.active {
   display: flex;
   margin-bottom: 0.2vh;
-  font-size: 1.8vh;
   align-self: flex-start;
   animation-name: fade;
   animation-duration: 0.8s;
@@ -149,11 +148,11 @@ body {
 @keyframes textgrowth {
   from {
     fill: grey;
-    font-size: 2vh;
+    font-size: 1.8vh;
   }
   to {
     fill: white;
-    font-size: 2.9vh;
+    font-size: 2.2vh;
   }
 }
 
@@ -179,7 +178,7 @@ body {
   }
 }
 
-.flex-content {
+.flex-content-col {
   display: flex;
   flex: 1 1 0px;
   gap: 3em;
@@ -191,6 +190,14 @@ body {
   margin-top: 10vh !important;
   /* height: 90vh; */
   max-height: 90vh !important;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre-wrap;
+}
+
+li {
+  margin: 20px 0;
 }
 
 @media print

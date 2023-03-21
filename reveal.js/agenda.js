@@ -164,15 +164,15 @@ function generateAgenda() {
     titlecontainer.appendChild(newTitle);
     var dynamicWidth;
     if (slides.length < 4) {
-      dynamicWidth = 85 / slides.length - 1 + "vw";
+      dynamicWidth = 85 / slides.length - 2 + "vw";
     } else {
-      dynamicWidth = 85 / 5 + "vw";
+      dynamicWidth = 85 / 3 + "vw";
     }
     newTitle.style.cssText = `display: flex; 
       justify-content:center; 
       flex-direction: column; 
       gap: 0.5em; align-items: 
-      center; min-width: ${dynamicWidth}`;
+      start; min-width: ${dynamicWidth}`;
     newTitle.innerHTML += `
     <div style="display: flex; align-items: center; justify-content: center;  gap: 0.5em;">
     <svg xmlns="http://www.w3.org/2000/svg" class="bulletpoint bi bi-circle" viewBox="0 0 16 16">
@@ -182,7 +182,7 @@ function generateAgenda() {
     </div>
     `;
     // Change css properties to properly generate subtitle margins
-    newTitle.querySelector(".header-title").style.fontSize = "2.9vh";
+    newTitle.querySelector(".header-title").style.fontSize = "2.2vh";
     newTitle.querySelector(".bulletpoint").style.height = "1vh";
     newTitle.querySelector(".bulletpoint").style.width = "1vh";
     slide.childs.forEach((x) => {
@@ -225,7 +225,14 @@ function scrollTitle(currentSlide, smooth) {
       inline: "nearest",
     });
   } else {
-    if (currentSlide - 1 < 0) return;
+    if (currentSlide - 1 < 0) {
+      titlecontainer.children[currentSlide].scrollIntoView({
+        behavior: scrollBehavior,
+        block: "end",
+        inline: "nearest",
+      });
+      return;
+    }
     titlecontainer.children[currentSlide - 1].scrollIntoView({
       behavior: scrollBehavior,
       block: "end",
