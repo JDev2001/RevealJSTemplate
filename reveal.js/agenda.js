@@ -226,11 +226,13 @@ function scrollTitle(currentSlide, smooth) {
     });
   } else {
     if (currentSlide - 1 < 0) {
-      titlecontainer.children[currentSlide].scrollIntoView({
-        behavior: scrollBehavior,
-        block: "end",
-        inline: "nearest",
-      });
+      if (currentSlide == 0) {
+        titlecontainer.children[currentSlide].scrollIntoView({
+          behavior: scrollBehavior,
+          block: "end",
+          inline: "nearest",
+        });
+      }
       return;
     }
     titlecontainer.children[currentSlide - 1].scrollIntoView({
