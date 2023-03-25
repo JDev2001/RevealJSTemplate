@@ -159,7 +159,7 @@ function changeDisplay(indexh) {
 }
 
 function generateAgenda() {
-  slides.forEach((slide) => {
+  slides.forEach((slide) => {  
     var newTitle = document.createElement("div");
     titlecontainer.appendChild(newTitle);
     var dynamicWidth;
@@ -196,7 +196,7 @@ function generateAgenda() {
         }px + 2px`;
       } else {
         titleElement.style.display = "none";
-      }
+      }     
       newTitle.appendChild(titleElement);
     });
     // Reset css properties
